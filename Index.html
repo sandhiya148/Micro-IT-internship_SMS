@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Student Management System</h1>
+        <input type="text" id="searchBox" placeholder="Search students..." oninput="searchStudents()">
+    </header>
+
+    <aside id="sidebar">
+        <button onclick="toggleEnrollment()">Enroll Student</button>
+        <button onclick="showSection('studentList')">Student List</button>
+        <button onclick="showSection('grades')">Grade Management</button>
+        <button onclick="showSection('communication')">Messages</button>
+    </aside>
+
+    <main id="content">
+        <section id="enrollment" style="display: none;">
+            <h2>Student Enrollment</h2>
+            <form id="enrollmentForm">
+                <table>
+                    <tr><td>Student Name:</td><td><input type="text" id="name" required></td></tr>
+                    <tr><td>Father's Name:</td><td><input type="text" id="fatherName" required></td></tr>
+                    <tr><td>Date of Birth:</td><td><input type="date" id="dob" required></td></tr>
+                    <tr><td>Gender:</td><td><select id="gender"><option value="Male">Male</option><option value="Female">Female</option></select></td></tr>
+                    <tr><td>Blood Group:</td><td><input type="text" id="bloodGroup" required></td></tr>
+                    <tr><td>Address:</td><td><input type="text" id="address" required></td></tr>
+                    <tr><td>Email Address:</td><td><input type="email" id="email" required></td></tr>
+                    <tr><td>Contact:</td><td><input type="text" id="contact" required></td></tr>
+                </table>
+                <button type="submit">Enroll</button>
+                <button type="reset" onclick="resetForm()">Cancel</button>
+            </form>
+        </section>
+
+        <section id="studentList">
+            <h2>Student List</h2>
+            <table id="studentsTable">
+                <thead>
+                    <tr><th>Name</th><th>Father's Name</th><th>Gender</th><th>Age</th><th>Blood Group</th><th>Address</th><th>Contact</th><th>Email</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="grades">
+            <h2>Grade Management</h2>
+            <table id="gradesTable">
+                <thead>
+                    <tr><th>Student Name</th><th>Grade</th><th>Update</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="communication">
+            <h2>Message System</h2>
+            <div id="chatWindow"></div>
+            <input type="email" id="recipientEmail" placeholder="Recipient Email">
+            <input type="text" id="messageInput" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
